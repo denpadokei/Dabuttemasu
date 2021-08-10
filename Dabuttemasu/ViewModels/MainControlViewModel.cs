@@ -49,6 +49,15 @@ namespace Dabuttemasu.ViewModels
                 this._domain.SerachDupulicateSongs(dlg.FileName);
             }
         }
+
+        private DelegateCommand<TreeViewItemEntity<DirectoryInfo>> _editCommand;
+        public DelegateCommand<TreeViewItemEntity<DirectoryInfo>> EditCommand =>
+            _editCommand ?? (_editCommand = new DelegateCommand<TreeViewItemEntity<DirectoryInfo>>(ExecuteEditCommand));
+
+        void ExecuteEditCommand(TreeViewItemEntity<DirectoryInfo> parameter)
+        {
+            this._domain.EditCommand(parameter.ListBoxValue.FullName);
+        }
         #endregion
         //ﾟ+｡*ﾟ+｡｡+ﾟ*｡+ﾟ ﾟ+｡*ﾟ+｡｡+ﾟ*｡+ﾟ ﾟ+｡*ﾟ+｡*ﾟ+｡｡+ﾟ*｡+ﾟ ﾟ+｡*ﾟ+｡｡+ﾟ*｡+ﾟ ﾟ+｡*ﾟ+｡*ﾟ+｡｡+ﾟ*｡+ﾟ ﾟ+｡*ﾟ+｡｡+ﾟ*｡+ﾟ ﾟ+｡*
         #region // オーバーライドメソッド

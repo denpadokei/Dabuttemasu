@@ -22,7 +22,8 @@
         <TreeView x:Name="MainTree" Grid.Row="0" Margin="5" ItemsSource="{Binding TreeViewItems}" SelectedValuePath="ListBoxValue">
             <TreeView.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="編集" Command="{Binding EditCommand}"></MenuItem>
+                    <!--TODO:CommandParameterに選択中のノードを持ってくるよう書き換える。（難易度激ムズ）-->
+                    <MenuItem Header="編集" Command="{Binding EditCommand, ConverterParameter=?}"></MenuItem>
                 </ContextMenu>
             </TreeView.ContextMenu>
             <TreeView.ItemTemplate>
